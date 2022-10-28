@@ -11,26 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
 			$btn.$effectBlock1.className = 'btn__effect-default';
 			$btn.append($btn.$effectBlock1);
 
-			$btn.$effectBlock2 = document.createElement('div');
-			$btn.$effectBlock2.className = 'btn__effect-hover';
-			$btn.append($btn.$effectBlock2);
+			$btn.$effectBlock2 = null
 
-			$btn.addEventListener('mousedown', (e) => {
-				var parentOffset = $btn.getBoundingClientRect(),
+			$btn.addEventListener('click', (e) => {
+				$btn.$effectBlock2 = document.createElement('div');
+				$btn.$effectBlock2.className = 'btn__effect-hover';
+				$btn.append($btn.$effectBlock2);
+				$btn.$effectBlock2.timeout = null;
+
+				let parentOffset = $btn.getBoundingClientRect(),
 					relX = e.pageX - (parentOffset.left + window.pageXOffset),
 					relY = e.pageY - (parentOffset.top + window.pageYOffset);
+				let size = $btn.offsetWidth * 2;
 
-				$btn.classList.add(classActive);
+
 				$btn.$effectBlock2.style.top = relY + 'px';
 				$btn.$effectBlock2.style.left = relX + 'px';
-			});
+				$btn.$effectBlock2.style.width = size + 'px';
+				$btn.$effectBlock2.style.height = size + 'px';
 
-			// $btn.addEventListener('mouseover', () => {
-			// 	$btn.classList.remove(classActive);
-			// });
+				$btn.classList.add(classActive);
 
-			$btn.addEventListener('mouseup', () => {
-				$btn.classList.remove(classActive);
+				clearTimeout($btn.$effectBlock2.timeout);
+				$btn.$effectBlock2.timeout = setTimeout(() => {
+					$btn.classList.remove(classActive);
+					$btn.$effectBlock2.remove();
+				}, 900);
 			});
 		});
 	}
