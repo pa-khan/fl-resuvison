@@ -306,6 +306,9 @@ img, svg, path, circle, rect, line {
   display: none;
 }
 
+.nav {
+  position: relative;
+}
 .nav__list {
   display: flex;
   flex-wrap: wrap;
@@ -322,6 +325,15 @@ img, svg, path, circle, rect, line {
   padding: 8px 10px 7px;
   margin-left: 10px;
   margin-right: 10px;
+}
+.nav__border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+  pointer-events: none;
+  border: 1px solid rgba(9, 66, 93, 0.17);
 }
 
 .h1 {

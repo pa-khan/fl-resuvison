@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const classShow = '--show';
+	const classCurrent = '--current';
 
 	// toggle nav on mobile
 	const $nav = document.querySelector('.nav');
@@ -10,6 +11,41 @@ document.addEventListener('DOMContentLoaded', () => {
 			$nav.classList.toggle(classShow);
 			$ham.classList.toggle(classShow);
 		});
+	}
+
+
+	// navItemsBorder
+	const $navItems = document.querySelectorAll('.nav__item');
+	const $navBorder = document.querySelector('.nav__border')
+	if ($navItems.length > 0) {
+
+
+		let $navItemCurrent = $navItems[0];
+
+		setStylePropertiesNavBorder($navItems[0]);
+
+
+		$navItems.forEach(($navItem) => {
+			if ($navItem.classList.contains(classCurrent)) {
+				setStylePropertiesNavBorder();
+			}
+
+			$navItem.addEventListener('mouseover', () => {
+				$navItemCurrent = $navItem;
+				setStylePropertiesNavBorder();
+			});
+		});
+
+		window.addEventListener('resize', () => {
+			setStylePropertiesNavBorder();
+		});
+
+
+		function setStylePropertiesNavBorder() {
+			let diff = $navItemCurrent.getBoundingClientRect().left - $nav.getBoundingClientRect().left
+			$navBorder.style.width = $navItemCurrent.offsetWidth + 'px';
+			$navBorder.style.left = diff + 'px';
+		}
 	}
 
 	// btnUp
