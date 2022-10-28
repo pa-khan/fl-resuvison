@@ -1,5 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const classShow = '--show';
+	const classCurrent = '--current';
+	const classActive = '--active';
+
+	// effects in btns
+	const $btns = document.querySelectorAll('.btn');
+	if ($btns.length > 0) {
+		$btns.forEach(($btn) => {
+			$btn.$effectBlock1 = document.createElement('div');
+			$btn.$effectBlock1.className = 'btn__effect-default';
+			$btn.append($btn.$effectBlock1);
+
+			$btn.$effectBlock2 = null
+
+			$btn.addEventListener('click', (e) => {
+				$btn.$effectBlock2 = document.createElement('div');
+				$btn.$effectBlock2.className = 'btn__effect-hover';
+				$btn.append($btn.$effectBlock2);
+				$btn.$effectBlock2.timeout = null;
+
+				let parentOffset = $btn.getBoundingClientRect(),
+					relX = e.pageX - (parentOffset.left + window.pageXOffset),
+					relY = e.pageY - (parentOffset.top + window.pageYOffset);
+				let size = $btn.offsetWidth * 2;
+
+
+				$btn.$effectBlock2.style.top = relY + 'px';
+				$btn.$effectBlock2.style.left = relX + 'px';
+				$btn.$effectBlock2.style.width = size + 'px';
+				$btn.$effectBlock2.style.height = size + 'px';
+
+				$btn.classList.add(classActive);
+
+				clearTimeout($btn.$effectBlock2.timeout);
+				$btn.$effectBlock2.timeout = setTimeout(() => {
+					$btn.classList.remove(classActive);
+					$btn.$effectBlock2.remove();
+				}, 900);
+			});
+		});
+	}
 
 	// toggle nav on mobile
 	const $nav = document.querySelector('.nav');
@@ -10,6 +50,41 @@ document.addEventListener('DOMContentLoaded', () => {
 			$nav.classList.toggle(classShow);
 			$ham.classList.toggle(classShow);
 		});
+	}
+
+
+	// navItemsBorder
+	const $navItems = document.querySelectorAll('.nav__item');
+	const $navBorder = document.querySelector('.nav__border')
+	if ($navItems.length > 0) {
+
+
+		let $navItemCurrent = $navItems[0];
+
+		setStylePropertiesNavBorder($navItems[0]);
+
+
+		$navItems.forEach(($navItem) => {
+			if ($navItem.classList.contains(classCurrent)) {
+				setStylePropertiesNavBorder();
+			}
+
+			$navItem.addEventListener('mouseover', () => {
+				$navItemCurrent = $navItem;
+				setStylePropertiesNavBorder();
+			});
+		});
+
+		window.addEventListener('resize', () => {
+			setStylePropertiesNavBorder();
+		});
+
+
+		function setStylePropertiesNavBorder() {
+			let diff = $navItemCurrent.getBoundingClientRect().left - $nav.getBoundingClientRect().left
+			$navBorder.style.width = $navItemCurrent.offsetWidth + 'px';
+			$navBorder.style.left = diff + 'px';
+		}
 	}
 
 	// btnUp
