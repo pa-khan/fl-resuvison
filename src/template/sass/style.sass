@@ -947,7 +947,7 @@
 			margin-top: 30px
 		&__item
 			width: 100%
-			margin-bottom: 15px
+			margin-bottom: 23px
 			padding-right: 0
 			display: flex
 			flex-wrap: wrap
@@ -956,7 +956,7 @@
 				margin-bottom: 0
 			&-text
 				width: calc( 100% - 60px )
-				padding-left: 15px
+				padding-left: 20px
 				padding-right: 100px
 			&:last-of-type
 				margin-bottom: 0
@@ -970,7 +970,7 @@
 		&__count
 			font-size: 45px
 			padding-left: 22px
-			margin-right: 15px
+			margin-right: 12px
 			&:before
 				width: 50px
 				height: 50px
@@ -993,7 +993,8 @@
 		&__nav
 			display: block
 			&-item
-				margin-bottom: 10px
+				font-size: 14px
+				margin-bottom: 16px
 				display: table
 				&:last-of-type
 					margin-bottom: 0
@@ -1016,3 +1017,169 @@
 		&__copy
 			margin-left: 0
 			margin-top: 10px
+
+@media screen and (max-width: 768px)
+	.header
+		padding-top: 26px
+		padding-bottom: 23px
+		&__btn-auth
+			margin-right: 56px
+
+	.h1
+		font-size: 25px
+		u
+			font-size: 27px
+
+	.h2
+		font-size: 23px
+
+	.h3
+		font-size: 19px
+
+	.intro
+		padding-bottom: 30px
+		&__content
+			max-width: 100%
+		&__title
+			margin-bottom: 20px
+		&__text
+			line-height: 1.4
+			margin-bottom: 30px
+		&__btns
+			max-width: 100%
+			flex-direction: row
+		&__btn-resume
+			margin-bottom: 0
+			margin-right: 20px
+		&__btn-sample
+			padding-right: 30px
+			padding-left: 30px
+		&__list
+			margin-top: 40px
+			margin-left: -10px
+		&__img-wrap
+			display: none
+		&__item
+			&-text
+				padding-right: 160px
+		&__scroll
+			display: none
+
+	.step
+		padding-bottom: 35px
+		&__head
+			margin-bottom: 22px
+		&__count
+			font-size: 35px
+			&:before
+				width: 40px
+				height: 40px
+		&__title
+			padding-top: 0
+		&__item
+			padding: 10px 10px 17px
+			&-name
+				margin-bottom: 16px
+			&-text
+				font-size: 13px
+			&.--md
+				width: 100%
+				padding: 10px
+				.step
+					&__item
+						&-name
+							font-size: 18px
+		&__text
+			padding-left: 0
+			margin-top: -10px
+			line-height: 1.3
+		&__more
+			margin-top: 18px
+			margin-bottom: 30px
+		&__info
+			flex-direction: column
+			align-items: flex-start
+
+	.more
+		padding-left: 0
+
+	.info
+		&__btn
+			font-size: 18px
+			margin-right: 0
+			margin-bottom: 20px
+
+	.content
+		padding-top: 20px
+		padding-bottom: 32px
+		&__wrap
+			padding-right: 0
+
+	.articles
+		&__title
+			font-size: 23px
+			margin-bottom: 10px
+		&__text
+			font-size: 14px
+			font-weight: 300
+			line-height: 1.4
+			margin-bottom: 30px
+		&__list
+			margin: 0 -10px -18px
+		&__item
+			margin: 0 10px 18px
+		&__more
+			margin-top: 18px
+
+	.article
+		&__label
+			font-size: 8px
+		&__img-wrap
+			margin-bottom: 4px
+		&__name
+			top: 3px
+			padding: 3px 10px
+		&__text
+			height: 25px
+			font-size: 11px
+
+	.footer
+		padding-top: 33px
+		&__nav
+			margin-bottom: 30px
+		&__controls
+			right: 40px
+		&__btn-app
+			margin-top: 13px
+			padding-left: 14px
+			padding-right: 14px
+			&.btn
+				.btn__text
+					font-size: 10px
+		&__wrap
+			flex-direction: column
+		&__contacts
+			order: 1
+			max-width: 100%
+			margin-left: 0
+			margin-bottom: 44px
+			margin-right: auto
+			text-align: left
+		&__time
+			font-size: 12px
+		&__methods
+			margin-top: 18px
+			justify-content: flex-start
+		&__info
+			order: 2
+			padding-top: 0
+			max-width: 400px
+		&__copy
+			order: 3
+			margin-top: 30px
+
+	.about
+		&__item
+			margin-bottom: 14px
+		&__text
+			font-size: 13px

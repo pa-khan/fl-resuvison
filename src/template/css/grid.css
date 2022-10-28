@@ -19,6 +19,8 @@
 @media screen and (max-width: 768px) {
   .case {
     max-width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
   }
 }
 .case .case {
