@@ -107,6 +107,8 @@
 		margin-top: 10px
 		margin-left: auto
 		margin-right: 80px
+	&__mob
+		display: none
 	&__bg
 		z-index: -2
 		position: absolute
@@ -1058,7 +1060,27 @@
 			margin-top: 40px
 			margin-left: -10px
 		&__img-wrap
+			right: 0
+			margin-top: 0
+			margin-right: 0
+			position: unset
+		&__bg
 			display: none
+		&__img
+			display: none
+		&__round
+			display: none
+		&__mob
+			display: block
+			&-img
+				position: absolute
+				&:nth-of-type(1)
+					right: -24px
+					bottom: 14px
+				&:nth-of-type(2)
+					top: -10px
+					right: -24px
+
 		&__item
 			&-text
 				padding-right: 160px
