@@ -23,6 +23,12 @@
     padding-left: 30px;
   }
 }
+@media screen and (max-width: 555px) {
+  .case {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .case .case {
   padding-left: 0;
   padding-right: 0;

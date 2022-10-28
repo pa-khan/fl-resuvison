@@ -132,6 +132,12 @@ img, svg, path, circle, rect, line {
     padding-left: 30px;
   }
 }
+@media screen and (max-width: 555px) {
+  .case {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .case .case {
   padding-left: 0;
   padding-right: 0;
@@ -365,6 +371,9 @@ img, svg, path, circle, rect, line {
   padding-right: 15px;
   margin-left: auto;
   margin-right: 80px;
+}
+.header__btn-auth .btn__icon svg {
+  height: 16px;
 }
 .header__ham {
   display: none;
@@ -792,6 +801,11 @@ img, svg, path, circle, rect, line {
   position: relative;
   margin-bottom: 7px;
 }
+.article__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .article__name {
   font-size: 9px;
   position: absolute;
@@ -912,6 +926,10 @@ img, svg, path, circle, rect, line {
 .footer__btn-app.btn .btn__text {
   font-size: 11px;
 }
+.footer__btn-app:hover {
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+}
 .footer__copy {
   font-size: 11px;
   font-weight: 300;
@@ -1008,6 +1026,7 @@ img, svg, path, circle, rect, line {
 .alert__text {
   font-size: 11px;
   font-weight: 300;
+  margin-right: 10px;
 }
 .alert__text a {
   color: var(--color-blue);
@@ -1016,14 +1035,20 @@ img, svg, path, circle, rect, line {
   border-color: var(--color-blue);
 }
 .alert__btn-close {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   opacity: 0.6;
-  width: 10px;
-  min-width: 10px;
-  height: 10px;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
   padding-top: 5px;
   margin-left: auto;
   cursor: pointer;
   transition: 0.3s;
+  margin-top: -5px;
+  margin-right: -5px;
 }
 .alert__btn-close:hover {
   opacity: 1;
@@ -1054,7 +1079,8 @@ img, svg, path, circle, rect, line {
   margin-right: -645px;
   cursor: pointer;
   transition: 0.3s;
-  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
 }
 .up__icon {
   width: 30px;
@@ -1078,7 +1104,8 @@ img, svg, path, circle, rect, line {
   color: var(--color-blue);
 }
 .up.--show {
-  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
 }
 
 .auth {
@@ -1103,7 +1130,7 @@ img, svg, path, circle, rect, line {
   visibility: visible;
 }
 .auth.--show .auth__wrap {
-  transform: scale(1);
+  transform: scale(1) translateZ(0px);
 }
 .auth__wrap {
   position: relative;
@@ -1116,7 +1143,9 @@ img, svg, path, circle, rect, line {
   padding: 20px 40px 30px;
   box-shadow: 0px 0px 7.92px 0.08px rgba(127, 127, 127, 0.52);
   transition: 0.3s;
-  transform: scale(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: scale(0) translateZ(0px);
 }
 .auth__close {
   position: absolute;
@@ -1328,7 +1357,7 @@ img, svg, path, circle, rect, line {
     top: 100%;
     left: 0;
     right: 0;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     background-color: #fff;
     box-shadow: 0px 5px 5.88px 1.12px rgba(78, 78, 78, 0.05);
     opacity: 0;
@@ -1337,10 +1366,29 @@ img, svg, path, circle, rect, line {
     transition: 0.3s;
   }
   .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
-    max-width: 750px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .nav__item {
+    margin-left: 0;
+    margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid transparent;
+  }
+  .nav__item:last-child {
+    margin-bottom: 0;
+  }
+  .nav__item:hover, .nav__item.--current {
+    border-color: rgba(9, 66, 93, 0.17);
+  }
+  .nav__border {
+    display: none;
   }
   .nav.--show {
     opacity: 1;
@@ -1428,12 +1476,14 @@ img, svg, path, circle, rect, line {
     margin-bottom: 10px;
   }
   .intro__img-wrap {
+    bottom: 20px;
     right: 40px;
     margin-top: 82px;
     margin-right: -40px;
   }
   .intro__round {
-    left: -36px;
+    left: -32px;
+    bottom: 20px;
   }
   .intro__bg {
     right: -20px;
@@ -1531,6 +1581,17 @@ img, svg, path, circle, rect, line {
     margin-top: 10px;
   }
 }
+@media screen and (max-width: 910px) {
+  .alert {
+    left: 15px;
+    right: 15px;
+    width: auto;
+    transform: translate(0px, 100px);
+  }
+  .alert.--show {
+    transform: translate(0px, 0px);
+  }
+}
 @media screen and (max-width: 768px) {
   .header {
     padding-top: 26px;
@@ -1538,6 +1599,11 @@ img, svg, path, circle, rect, line {
   }
   .header__btn-auth {
     margin-right: 56px;
+  }
+  .nav__list {
+    max-width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   .h1 {
     font-size: 25px;
@@ -1748,7 +1814,7 @@ img, svg, path, circle, rect, line {
     padding-top: 0;
     max-width: 400px;
   }
-  .footer__copy {
+  .footer__copy15px {
     order: 3;
     margin-top: 30px;
   }
@@ -1757,5 +1823,92 @@ img, svg, path, circle, rect, line {
   }
   .about__text {
     font-size: 13px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .intro__mob-img {
+    z-index: -1;
+  }
+}
+@media screen and (max-width: 555px) {
+  .nav__list {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (max-width: 525px) {
+  .header {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+  .header__logo {
+    width: 130px;
+    margin-right: 0;
+  }
+  .header__btn-auth {
+    margin-right: 20px;
+  }
+  .intro {
+    padding-top: 90px;
+  }
+  .intro__text {
+    margin-bottom: 20px;
+  }
+  .intro__btns {
+    flex-direction: column;
+  }
+  .intro__btn-resume {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .intro__mob-img:nth-of-type(2) {
+    display: none;
+  }
+  .step__item {
+    width: 100%;
+  }
+  .articles__item {
+    width: 100%;
+  }
+  .article__text a {
+    border-bottom: none;
+  }
+}
+@media screen and (max-width: 495px) {
+  .footer__controls {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    position: static;
+  }
+}
+@media screen and (max-width: 430px) {
+  .intro__mob-img {
+    display: none;
+  }
+  .intro__list {
+    margin-top: 25px;
+  }
+  .intro__item-text {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 370px) {
+  .step__sample {
+    height: 90px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .header__btn-auth .btn__icon {
+    display: none !important;
+  }
+  .header__btn-auth .btn__text {
+    margin-left: 0 !important;
+  }
+}
+@media screen and (max-width: 330px) {
+  .header__btn-auth {
+    margin-right: auto;
   }
 }
