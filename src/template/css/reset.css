@@ -1,3 +1,10 @@
+:root {
+  --color-main: #09425d;
+  --color-gray: #adb8bd;
+  --color-blue: #01a0e2;
+  --font-main: "Roboto", sans-serif;
+}
+
 *, :before, :after {
   padding: 0;
   margin: 0;
@@ -7,12 +14,13 @@
 
 html, body {
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: #000000;
-  font-size: 16px;
-  font-family: "Tahoma", sans-serif;
+  color: var(--color-main);
+  font-size: 14px;
+  font-family: var(--font-main);
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -37,7 +45,7 @@ li {
 }
 
 a {
-  color: #000000;
+  color: var(--color-main);
   text-decoration: none;
   outline: none;
   transition: 0.3s;
@@ -71,12 +79,14 @@ picture {
 
 img {
   display: block;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 svg {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 img, svg, path, circle, rect, line {
@@ -86,4 +96,5 @@ img, svg, path, circle, rect, line {
 .wrap {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }

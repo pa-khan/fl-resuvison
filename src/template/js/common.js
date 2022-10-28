@@ -1,43 +1,72 @@
-var html = document.querySelector('html'),
-		body = document.querySelector('body'),
-		wrap = document.querySelector('.wrap');
+document.addEventListener('DOMContentLoaded', () => {
+	const classShow = '--show';
 
-document.addEventListener('DOMContentLoaded', ()=>{
-	// Fields
-	let fields = document.querySelectorAll('.field');
-	 
-	if (fields) {
-		fields.forEach((field)=>{
-			new Field(field);
+	// toggle nav on mobile
+	const $nav = document.querySelector('.nav');
+	const $ham = document.querySelector('.ham');
+
+	if ($ham) {
+		$ham.addEventListener('click', () => {
+			$nav.classList.toggle(classShow);
+			$ham.classList.toggle(classShow);
 		});
 	}
 
+	// btnUp
+	const $btnUp = document.querySelector('.up');
 
-	// Checks
-	let checks = document.querySelectorAll('.check');
-	 
-	if (checks) {
-		checks.forEach((check)=>{
-			new Check(check);
-		});
-	}
-
-
-	// Selects
-	var selects = document.querySelectorAll('.select');
-	if (selects) {
-			selects.forEach(select => {
-		  new Select(select);
-		});
-
-		document.addEventListener('click', (event)=>{
-			let openSelects = document.querySelectorAll('.select.--open');
-			if (!event.target.closest('.select') && openSelects) {
-				openSelects.forEach((select)=> {
-					select.classList.remove(Select.classOpen);
-				});
+	if ($btnUp) {
+		toggleShowBtnUp();
+		window.addEventListener('scroll', toggleShowBtnUp);
+		function toggleShowBtnUp() {
+			if (window.pageYOffset >= 500) {
+				$btnUp.classList.add(classShow);
+			} else {
+				$btnUp.classList.remove(classShow);
 			}
-		})
+		}
 	}
 
+
+	// cookie alert
+	const $alert = document.querySelector('.alert');
+
+	if ($alert) {
+		const $alertBtnClose = $alert.querySelector('.alert__btn-close');
+		const lsAlertKey = 'alert_close';
+		let lsAlertValue = localStorage.getItem(lsAlertKey);
+		let isAlertClose = lsAlertValue && lsAlertValue == 'true' ? true : false;
+
+		if (!isAlertClose) {
+			$alert.classList.add(classShow);
+		}
+
+		$alertBtnClose.addEventListener('click', () => {
+			localStorage.setItem(lsAlertKey, true);
+			$alert.classList.remove(classShow);
+		});
+	}
+
+
+	// auth
+	const $auth = document.querySelector('.auth');
+	if ($auth) {
+		$authShowBtns = document.querySelectorAll('.auth-btn-show, [data-auth-show]');
+		$authCloseBtns = document.querySelectorAll('.auth-btn-close, [data-auth-close]');
+
+		$authShowBtns.forEach(($btn) => {
+			$btn.addEventListener('click', () => {
+				$auth.classList.add(classShow);
+			});
+		});
+
+		$authCloseBtns.forEach(($btn) => {
+			$btn.addEventListener('click', () => {
+				$auth.classList.remove(classShow);
+			});
+		});
+
+
+
+	}
 });

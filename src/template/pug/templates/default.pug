@@ -6,18 +6,16 @@ html(lang="ru")
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		title=title
+		<link rel="shortcut icon" href="uploads/favicon.png" type="image/png">
 	body
 		.wrap
 			link(rel="stylesheet" href="template/css/style.css" + version)
 
-			+style('header', 'blocks')
 			include ../../blocks/header/header
-			+script('header', 'blocks')
 			
 			main.main
 				block content
 
-			+style('footer', 'blocks')
 			include ../../blocks/footer/footer
 
 			script(src="template/js/common.js" + version)

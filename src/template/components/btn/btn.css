@@ -1,0 +1,84 @@
+.btn {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--font-main);
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  transition: 0.3s;
+  outline: none;
+  border-bottom: none;
+}
+.btn__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn.--sm {
+  height: 28px;
+  border-radius: 5px;
+}
+.btn.--sm .btn__icon + .btn__text {
+  margin-left: 7px;
+}
+.btn.--sm .btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+.btn.--sm .btn__icon svg {
+  display: block;
+}
+.btn.--sm .btn__text {
+  font-size: 16px;
+  font-weight: 300;
+}
+.btn.--md {
+  height: 40px;
+  border-radius: 5px;
+}
+.btn.--md .btn__icon + .btn__text {
+  margin-left: 10px;
+}
+.btn.--md .btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+.btn.--md .btn__icon svg {
+  display: block;
+}
+.btn.--md .btn__text {
+  font-size: 18px;
+  font-weight: 300;
+}
+.btn.--bg-blue {
+  color: #fff;
+  background-color: var(--color-blue);
+}
+.btn.--bg-blue .btn__icon path {
+  fill: #fff;
+}
+.btn.--bg-gray {
+  color: #fff;
+  background-color: var(--color-gray);
+}
+.btn.--bg-gray .btn__icon path {
+  fill: #fff;
+}
+.btn.--b-gray {
+  color: #313131;
+  border: 1px solid #dbdbdb;
+}
+.btn.--shadow {
+  box-shadow: 0px 5px 5.88px 1.12px rgba(78, 78, 78, 0.16);
+}
