@@ -811,14 +811,21 @@
 		&__name
 			width: 180px
 
-	.footer__nav-item
-		font-size: 12px
+	.footer
+		&__nav
+			&-item
+				font-size: 12px
+		&__info
+			max-width: calc(100% - 400px)
 
 	.about
 		&__text
 			font-size: 11px
 
 @media screen and (max-width: 992px)
+	.h2
+		font-size: 30px
+
 	.header
 		z-index: 60
 		position: fixed
@@ -916,12 +923,96 @@
 						left: 50%
 
 	.intro
+		padding-top: 110px
 		&__wrap
 			position: relative
 		&__content
 			max-width: 460px
+		&__btns
+			max-width: 300px
+			flex-direction: column
+		&__btn-resume
+			margin-right: 0
+			margin-bottom: 10px
 		&__img-wrap
+			right: 40px
+			margin-top: 82px
+			margin-right: -40px
+		&__round
+			left: -36px
+		&__bg
+			right: -150px
+			bottom: 160px
+		&__list
+			margin-top: 30px
+		&__item
+			width: 100%
+			margin-bottom: 15px
+			padding-right: 0
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			&-icon
+				margin-bottom: 0
+			&-text
+				width: calc( 100% - 60px )
+				padding-left: 15px
+				padding-right: 100px
+			&:last-of-type
+				margin-bottom: 0
+
+	.scroll
+		top: 90px
+
+	.step
+		&__head
+			margin-bottom: 15px
+		&__count
+			font-size: 45px
+			padding-left: 22px
+			margin-right: 15px
+			&:before
+				width: 50px
+				height: 50px
+		&__item
+			width: calc( 50% - 20px )
+		&__sample
+			width: calc( 50% - 20px )
+
+	.info
+		&__btn
+			font-size: 16px
+
+	.articles
+		&__item
+			width: calc( 50% - 20px )
+		&__text
+			font-size: 15px
+
+	.footer
+		&__nav
+			display: block
+			&-item
+				margin-bottom: 10px
+				display: table
+				&:last-of-type
+					margin-bottom: 0
+		&__controls
+			top: 20px
+			right: 15px
+			flex-direction: column
 			position: absolute
-			top: 0
-			right: -110px
-			transform: scale(0.8)
+		&__btn-app
+			margin-left: 0
+			margin-top: 10px
+		&__info
+			max-width: calc(100% - 340px)
+		&__phone
+			margin-bottom: 10px
+		&__time
+			font-size: 11px
+		&__methods
+			margin-top: 20px
+		&__copy
+			margin-left: 0
+			margin-top: 10px
