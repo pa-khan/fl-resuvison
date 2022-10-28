@@ -1,6 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const classShow = '--show';
 	const classCurrent = '--current';
+	const classActive = '--active';
+
+	// effects in btns
+	const $btns = document.querySelectorAll('.btn');
+	if ($btns.length > 0) {
+		$btns.forEach(($btn) => {
+			$btn.$effectBlock1 = document.createElement('div');
+			$btn.$effectBlock1.className = 'btn__effect-default';
+			$btn.append($btn.$effectBlock1);
+
+			$btn.$effectBlock2 = document.createElement('div');
+			$btn.$effectBlock2.className = 'btn__effect-hover';
+			$btn.append($btn.$effectBlock2);
+
+			$btn.addEventListener('mousedown', (e) => {
+				var parentOffset = $btn.getBoundingClientRect(),
+					relX = e.pageX - (parentOffset.left + window.pageXOffset),
+					relY = e.pageY - (parentOffset.top + window.pageYOffset);
+
+				$btn.classList.add(classActive);
+				$btn.$effectBlock2.style.top = relY + 'px';
+				$btn.$effectBlock2.style.left = relX + 'px';
+			});
+
+			// $btn.addEventListener('mouseover', () => {
+			// 	$btn.classList.remove(classActive);
+			// });
+
+			$btn.addEventListener('mouseup', () => {
+				$btn.classList.remove(classActive);
+			});
+		});
+	}
 
 	// toggle nav on mobile
 	const $nav = document.querySelector('.nav');
