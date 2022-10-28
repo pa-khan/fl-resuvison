@@ -1436,8 +1436,10 @@ img, svg, path, circle, rect, line {
     left: -36px;
   }
   .intro__bg {
-    right: -150px;
+    right: -20px;
     bottom: 160px;
+    width: 400px;
+    overflow: hidden;
   }
   .intro__list {
     margin-top: 30px;
